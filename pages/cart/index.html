@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>List Data</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      td,
+      th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+
+      th:nth-child(2):hover {
+        cursor: pointer;
+      }
+
+      .arrow {
+        float: right;
+        font-weight: initial;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1>List Data Descending && Ascending</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th @click="sorting">
+              Published At <span class="arrow">&#8645;</span>
+            </th>
+            <th>_kw</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(row, index) in rows" :key="index">
+            <td>{{ row.title }}</td>
+            <td>
+              <span>{{ row.published_at }}</span>
+            </td>
+            <td>{{ row._kw }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script>
+      var app = new Vue({
+        el: '#app',
+        data() {
+          return {
+            rows: [],
+            descSorting: true,
+          }
+        },
+        created() {
+          axios.get('http://devtest.equisolve-dev.com/').then((res) => {
+            console.log(res.data)
+            this.dataSorting(res.data)
+          })
+        },
+        methods: {
+          sorting() {
+            // this function sort data des or asc when click on published_at
+            this.descSorting = !this.descSorting
+            this.dataSorting()
+          },
+          dataSorting(array = this.rows) {
+            /*
+             * this function take the Array that I want to sort it, it takes this.rows as a default Array
+             * it sorts data descending by dafault
+             * it sorts data depends on descSorting value
+             */
+            const arr = array
+            const data = arr.sort((a, b) => {
+              const des = new Date(b.published_at) - new Date(a.published_at)
+              const asc = new Date(a.published_at) - new Date(b.published_at)
+              return this.descSorting ? des : asc
+            })
+            return (this.rows = data)
+          },
+        },
+      })
+    </script>
+  </body>
+</html>

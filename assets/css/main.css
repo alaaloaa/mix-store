@@ -1,0 +1,324 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  font-family: 'Poppins';
+}
+
+a {
+  text-decoration: none !important;
+  font-family: 'Poppins-Medium';
+  font-size: 14px;
+  color: #333 !important;
+}
+
+.main-card {
+  background: url("https://preview.colorlib.com/theme/cozastore/images/xbg-01.jpg.pagespeed.ic.2e1HWxQapm.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.main-card h1 {
+  line-height: 200px;
+  color: #fff;
+}
+
+.quantity-buttons button {
+  padding: 16px 5px;
+  margin: 0px;
+}
+
+.quantity-buttons button:active {
+  /* background: blue !important */
+}
+
+.quantity-buttons button:not(:nth-child(2)) {
+  font-size: 18px;
+}
+
+.quantity-buttons button:nth-child(2) {
+  pointer-events: none;
+}
+
+/* Navbar */
+#navbar {
+  z-index: 78;
+  transition: all 1s;
+}
+
+#navbar a.nuxt-link-exact-active span.mainLinks,
+#navbar a.nuxt-link-exact-active .iconLinks {
+  color: var(--v-mainColor-base) !important;
+}
+
+#navbar a span.mainLinks {
+  font-family: 'Times New Roman', Times, serif;
+  display: inline-block;
+  padding: 10px 15px;
+  font-weight: 500;
+}
+
+#navbar a span.mainLinks:hover,
+#navbar .iconLinks:hover {
+  color: var(--v-mainColor-base) !important;
+}
+
+.v-navigation-drawer {
+  padding-top: 70px;
+  z-index: 77 !important;
+}
+
+/* Slider */
+#slider #home {
+  position: relative;
+  top: -70px;
+  margin-right: -15px !important;
+}
+
+#slider #home .small-slider {
+  position: absolute;
+  top: 80%;
+  left: 35%;
+  width: 30%;
+  border: 1px solid #ccc;
+  border-bottom: none;
+}
+
+#slider #home .parent-slider .bg,
+#slider #home .small-slider .bg {
+  width: 100%;
+  height: 105vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover !important;
+}
+
+#slider #home .small-slider .bg {
+  height: 10vh;
+}
+
+#slider #home .small-slider .bg:hover {
+  cursor: pointer;
+}
+
+#slider #home .text {
+  position: absolute;
+  top: 35%;
+  left: 5%;
+  font-family: 'Poppins swap';
+  font-size: 30px;
+}
+
+#slider #home .text h1 {
+  font-size: 50px;
+}
+
+/* Products */
+#products .product {
+  position: relative;
+}
+
+#products .product .view-btn {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+#products .product .text {
+  position: relative;
+  font-family: Poppins-Regular;
+  font-size: 14px;
+  line-height: 1.466667;
+  letter-spacing: 1px;
+}
+
+#products .product .text i {
+  position: absolute;
+  right: 4%;
+  bottom: 40%;
+}
+
+#products .product:hover .view-btn {
+  background: #000;
+  color: white;
+  opacity: 1;
+}
+
+/*============= Job View =================*/
+/* Slider */
+#job-view #slider {
+  position: relative;
+  overflow: hidden;
+}
+
+#job-view #slider .small-slider .slick-initialized .slick-slide[data-v-e4caeaf8] {
+  display: contents;
+}
+
+#job-view #slider .small-slider {
+  padding-right: 7%;
+}
+
+#job-view #slider .parent-slider .bg,
+#job-view #slider .small-slider .bg {
+  height: 50vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover !important;
+}
+
+#job-view #slider .small-slider .bg {
+  height: 9.2vh;
+}
+
+#job-view #slider .small-slider .bg:hover {
+  cursor: pointer;
+}
+
+#job-view #slider .text {
+  position: absolute;
+  top: 35%;
+  left: 5%;
+  font-family: 'Poppins swap';
+  font-size: 30px;
+}
+
+#job-view #slider .text h1 {
+  font-size: 50px;
+}
+
+#job-view #slider .slick-prev {
+  background: #020202;
+  padding: 15px;
+  left: 0;
+  z-index: 5;
+}
+
+#job-view #slider .slick-next {
+  right: 0px;
+  background: #020202;
+  z-index: 5;
+  padding: 15px;
+}
+
+#job-view #slider .slick-prev::before {
+  position: relative;
+  left: -11px;
+  top: -8px;
+}
+
+#job-view #slider .slick-next::before {
+  position: relative;
+  left: -8px;
+  top: -8px;
+}
+
+#job-view .right .text h4 {
+  font-family: 'Poppins';
+  font-size: 24px;
+  line-height: 1.5;
+  font-weight: lighter;
+  margin-bottom: 10px;
+}
+
+#job-view .right .text p:first-of-type {
+  font-family: 'Poppins';
+  font-size: 17px;
+  line-height: 1.388888;
+  font-weight: 800;
+}
+
+#job-view .right .text p:nth-of-type(2) {
+  font-family: 'Poppins';
+  font-size: 14px;
+  line-height: 1.7;
+  font-weight: lighter;
+}
+
+/*=========== About us ===================*/
+.about-us .story .left h3 {
+  font-family: 'Poppins';
+  font-size: 30px;
+  line-height: 1.2;
+}
+
+.about-us .story .left p {
+  font-family: 'Poppins';
+  font-size: 14px;
+  line-height: 1.7857;
+  font-weight: 100;
+}
+
+.about-us .right .main {
+  border: 3px solid #ccc;
+}
+
+.about-us .right .main .img {
+  border: 2px solid grey;
+  position: relative;
+  left: 10%;
+  top: -30px;
+}
+
+.about-us .mission .img {
+  left: -10% !important;
+}
+
+@media screen and (max-width: 1100px) and (min-width: 991px) {
+  .last-link {
+    margin-right: 7%;
+  }
+  /* view job slider */
+  #job-view #slider .parent-slider .bg {
+    height: 30vh !important;
+  }
+  #job-view #slider .small-slider .bg {
+    height: 5.5vh;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  #slider #home .small-slider {
+    width: 50%;
+    left: 25%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .last-link {
+    margin-right: 5%;
+  }
+  /* home slider */
+  #slider #home .parent-slider .bg,
+  #slider #home .small-slider .bg {
+    background-position: center;
+    background-position-x: 57%;
+  }
+  #slider #home .small-slider {
+    width: 80%;
+    left: 10%;
+  }
+  #slider #home .small-slider .bg {
+    height: 10vh;
+  }
+  #slider #home .text {
+    width: 90%;
+    font-size: 25px;
+  }
+  #slider #home .text h1 {
+    font-size: 40px;
+  }
+  /* view job slider */
+  #job-view #slider .parent-slider .bg {
+    height: 40vh !important;
+  }
+  #job-view #slider .small-slider .bg {
+    height: 7vh;
+  }
+}
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,353 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  font-family: 'Poppins';
+}
+
+a {
+  text-decoration: none !important;
+  font-family: 'Poppins-Medium';
+  font-size: 14px;
+  color: #333 !important;
+}
+
+.main-card {
+  background: url('https://preview.colorlib.com/theme/cozastore/images/xbg-01.jpg.pagespeed.ic.2e1HWxQapm.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  h1 {
+    line-height: 200px;
+    color: #fff;
+  }
+}
+
+.quantity-buttons button {
+  padding: 16px 5px;
+  margin: 0px
+}
+
+.quantity-buttons button:active {
+  /* background: blue !important */
+}
+
+.quantity-buttons button:not(:nth-child(2)) {
+  font-size: 18px;
+}
+
+.quantity-buttons button:nth-child(2) {
+  pointer-events: none;
+}
+
+
+/* Navbar */
+#navbar {
+  z-index: 78;
+  transition: all 1s;
+
+  a.nuxt-link-exact-active span.mainLinks,
+  a.nuxt-link-exact-active .iconLinks {
+    color: var(--v-mainColor-base) !important;
+  }
+
+  a span.mainLinks {
+    font-family: 'Times New Roman', Times, serif;
+    display: inline-block;
+    padding: 10px 15px;
+    font-weight: 500;
+  }
+
+  a span.mainLinks:hover,
+  .iconLinks:hover {
+    color: var(--v-mainColor-base) !important;
+  }
+}
+
+.v-navigation-drawer {
+  padding-top: 70px;
+  z-index: 77 !important;
+}
+
+/* Slider */
+#slider #home {
+  position: relative;
+  top: -70px;
+  margin-right: -15px !important;
+
+  .small-slider {
+    position: absolute;
+    top: 80%;
+    left: 35%;
+    width: 30%;
+    border: 1px solid #ccc;
+    border-bottom: none;
+  }
+
+  .parent-slider .bg,
+  .small-slider .bg {
+    width: 100%;
+    height: 105vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover !important;
+  }
+
+  .small-slider .bg {
+    height: 10vh;
+  }
+
+  .small-slider .bg:hover {
+    cursor: pointer;
+  }
+
+  .text {
+    position: absolute;
+    top: 35%;
+    left: 5%;
+    font-family: 'Poppins swap';
+    font-size: 30px;
+    // color: var(--v-mainColor-base);
+  }
+
+  .text h1 {
+    font-size: 50px;
+  }
+}
+
+/* Products */
+
+#products .product {
+  position: relative;
+
+  .view-btn {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+
+  .text {
+    position: relative;
+    font-family: Poppins-Regular;
+    font-size: 14px;
+    line-height: 1.466667;
+    letter-spacing: 1px;
+
+    i {
+      position: absolute;
+      right: 4%;
+      bottom: 40%;
+    }
+  }
+
+  &:hover .view-btn {
+    background: #000;
+    color: white;
+    opacity: 1;
+  }
+}
+
+/*============= Job View =================*/
+
+/* Slider */
+#job-view #slider {
+  position: relative;
+  overflow: hidden;
+
+  .small-slider .slick-initialized .slick-slide[data-v-e4caeaf8] {
+    display: contents;
+  }
+
+  .small-slider {
+    padding-right: 7%;
+  }
+
+  .parent-slider .bg,
+  .small-slider .bg {
+    height: 70vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover !important;
+  }
+
+  .small-slider .bg {
+    height: 9.2vh;
+  }
+
+  .small-slider .bg:hover {
+    cursor: pointer;
+  }
+
+  .text {
+    position: absolute;
+    top: 35%;
+    left: 5%;
+    font-family: 'Poppins swap';
+    font-size: 30px;
+  }
+
+  .text h1 {
+    font-size: 50px;
+  }
+
+  .slick-prev {
+    background: rgb(2, 2, 2);
+    padding: 15px;
+    left: 0;
+    z-index: 5;
+  }
+
+  .slick-next {
+    right: 0px;
+    background: rgb(2, 2, 2);
+    z-index: 5;
+    padding: 15px;
+  }
+
+  .slick-prev::before {
+    position: relative;
+    left: -11px;
+    top: -8px;
+  }
+
+  .slick-next::before {
+    position: relative;
+    left: -8px;
+    top: -8px;
+  }
+}
+
+#job-view .right {
+  .text {
+    h4 {
+      font-family: 'Poppins';
+      font-size: 24px;
+      line-height: 1.5;
+      font-weight: lighter;
+      margin-bottom: 10px
+    }
+
+    p:first-of-type {
+      font-family: 'Poppins';
+      font-size: 17px;
+      line-height: 1.388888;
+      font-weight: 800
+    }
+
+    p:nth-of-type(2) {
+      font-family: 'Poppins';
+      font-size: 14px;
+      line-height: 1.7;
+      font-weight: lighter;
+    }
+  }
+}
+
+/*=========== About us ===================*/
+
+.about-us {
+  .story .left {
+    h3 {
+      font-family: 'Poppins';
+      font-size: 30px;
+      line-height: 1.2;
+    }
+
+    p {
+      font-family: 'Poppins';
+      font-size: 14px;
+      line-height: 1.7857;
+      font-weight: 100;
+    }
+  }
+
+  .right .main {
+    border: 3px solid #ccc;
+
+    .img {
+      border: 2px solid grey;
+      position: relative;
+      left: 10%;
+      top: -30px
+    }
+  }
+
+  .mission .img {
+    left: -10% !important;
+  }
+
+}
+
+@media screen and (max-width: 1100px) and (min-width: 991px) {
+  .last-link {
+    margin-right: 7%;
+  }
+
+  /* view job slider */
+  #job-view #slider {
+    .parent-slider .bg {
+      height: 30vh !important;
+    }
+
+    .small-slider .bg {
+      height: 5.5vh;
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  #slider #home .small-slider {
+    width: 50%;
+    left: 25%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .last-link {
+    margin-right: 5%;
+  }
+
+  /* home slider */
+  #slider #home {
+
+    .parent-slider .bg,
+    .small-slider .bg {
+      background-position: center;
+      background-position-x: 57%;
+    }
+
+    .small-slider {
+      width: 80%;
+      left: 10%;
+    }
+
+    .small-slider .bg {
+      height: 10vh;
+    }
+
+    .text {
+      width: 90%;
+      font-size: 25px;
+
+      h1 {
+        font-size: 40px;
+      }
+    }
+  }
+
+  /* view job slider */
+  #job-view #slider {
+    .parent-slider .bg {
+      height: 40vh !important;
+    }
+
+    .small-slider .bg {
+      height: 7vh;
+    }
+  }
+}

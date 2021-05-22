@@ -1,0 +1,2 @@
+npm run dev => to serve project
+npm run lint:fix => to fix lint errors 
