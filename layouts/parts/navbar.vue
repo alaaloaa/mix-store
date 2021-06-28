@@ -26,14 +26,24 @@
         :class="link.class"
       >
         <v-btn icon>
-          <v-badge v-if="link.badge" color="mainColor" overlap content="6">
+          <v-badge
+            v-if="link.badge"
+            color="mainColor"
+            overlap
+            :content="link.count"
+          >
             <v-icon class="iconLinks">{{ link.icon }}</v-icon>
           </v-badge>
           <v-icon v-else class="iconLinks">{{ link.icon }}</v-icon>
         </v-btn>
       </NuxtLink>
     </v-app-bar>
-    <v-navigation-drawer v-model="drawer" absolute class="d-flex d-sm-none">
+    <v-navigation-drawer
+      v-model="drawer"
+      temporary
+      app
+      class="d-flex d-sm-none"
+    >
       <v-list-item-group>
         <v-list-item-group nav dense>
           <NuxtLink
@@ -94,16 +104,18 @@ export default {
         //   route: '#',
         //   class:"search"
         // },
-        {
-          icon: 'mdi-heart-outline',
-          route: 'products-saved',
-          badge: true,
-        },
+        // {
+        //   icon: 'mdi-heart-outline',
+        //   route: 'products-saved',
+        //   badge: true,
+        //   count: 2,
+        // },
         {
           icon: 'mdi-cart-variant',
           route: 'cart',
           badge: true,
           class: 'last-link',
+          count: this.$store.state.cart.length,
         },
       ]
     },

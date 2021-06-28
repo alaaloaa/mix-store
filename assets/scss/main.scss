@@ -13,6 +13,23 @@ a {
   color: #333 !important;
 }
 
+.page-enter-active {
+  transition: all 0.8s ease;
+}
+.page-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.page-enter, .page-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
+}
+
+/* alert */
+#swal2-content {
+  line-height: 1.666667;
+}
+
 .main-card {
   background: url('https://preview.colorlib.com/theme/cozastore/images/xbg-01.jpg.pagespeed.ic.2e1HWxQapm.webp');
   background-size: cover;
@@ -27,7 +44,7 @@ a {
 
 .quantity-buttons button {
   padding: 16px 5px;
-  margin: 0px
+  margin: 0px;
 }
 
 .quantity-buttons button:active {
@@ -41,7 +58,6 @@ a {
 .quantity-buttons button:nth-child(2) {
   pointer-events: none;
 }
-
 
 /* Navbar */
 #navbar {
@@ -72,10 +88,9 @@ a {
 }
 
 /* Slider */
-#slider #home {
+#home #slider {
   position: relative;
   top: -70px;
-  margin-right: -15px !important;
 
   .small-slider {
     position: absolute;
@@ -122,6 +137,10 @@ a {
 #products .product {
   position: relative;
 
+  .product-card:hover {
+    cursor: pointer;
+  }
+
   .view-btn {
     position: absolute;
     top: 80%;
@@ -152,7 +171,7 @@ a {
   }
 }
 
-/*============= Job View =================*/
+/*============= Product View =================*/
 
 /* Slider */
 #job-view #slider {
@@ -229,14 +248,14 @@ a {
       font-size: 24px;
       line-height: 1.5;
       font-weight: lighter;
-      margin-bottom: 10px
+      margin-bottom: 10px;
     }
 
     p:first-of-type {
       font-family: 'Poppins';
       font-size: 17px;
       line-height: 1.388888;
-      font-weight: 800
+      font-weight: 800;
     }
 
     p:nth-of-type(2) {
@@ -273,21 +292,16 @@ a {
       border: 2px solid grey;
       position: relative;
       left: 10%;
-      top: -30px
+      top: -30px;
     }
   }
 
   .mission .img {
     left: -10% !important;
   }
-
 }
 
 @media screen and (max-width: 1100px) and (min-width: 991px) {
-  .last-link {
-    margin-right: 7%;
-  }
-
   /* view job slider */
   #job-view #slider {
     .parent-slider .bg {
@@ -301,20 +315,15 @@ a {
 }
 
 @media screen and (max-width: 991px) {
-  #slider #home .small-slider {
+  #home #slider .small-slider {
     width: 50%;
     left: 25%;
   }
 }
 
 @media screen and (max-width: 767px) {
-  .last-link {
-    margin-right: 5%;
-  }
-
   /* home slider */
-  #slider #home {
-
+  #home #slider {
     .parent-slider .bg,
     .small-slider .bg {
       background-position: center;

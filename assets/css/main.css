@@ -13,6 +13,24 @@ a {
   color: #333 !important;
 }
 
+.page-enter-active {
+  transition: all 0.8s ease;
+}
+
+.page-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.page-enter, .page-leave-to {
+  transform: translateX(10px);
+  opacity: 0;
+}
+
+/* alert */
+#swal2-content {
+  line-height: 1.666667;
+}
+
 .main-card {
   background: url("https://preview.colorlib.com/theme/cozastore/images/xbg-01.jpg.pagespeed.ic.2e1HWxQapm.webp");
   background-size: cover;
@@ -71,13 +89,12 @@ a {
 }
 
 /* Slider */
-#slider #home {
+#home #slider {
   position: relative;
   top: -70px;
-  margin-right: -15px !important;
 }
 
-#slider #home .small-slider {
+#home #slider .small-slider {
   position: absolute;
   top: 80%;
   left: 35%;
@@ -86,8 +103,8 @@ a {
   border-bottom: none;
 }
 
-#slider #home .parent-slider .bg,
-#slider #home .small-slider .bg {
+#home #slider .parent-slider .bg,
+#home #slider .small-slider .bg {
   width: 100%;
   height: 105vh;
   background-repeat: no-repeat;
@@ -95,15 +112,15 @@ a {
   background-size: cover !important;
 }
 
-#slider #home .small-slider .bg {
+#home #slider .small-slider .bg {
   height: 10vh;
 }
 
-#slider #home .small-slider .bg:hover {
+#home #slider .small-slider .bg:hover {
   cursor: pointer;
 }
 
-#slider #home .text {
+#home #slider .text {
   position: absolute;
   top: 35%;
   left: 5%;
@@ -111,13 +128,17 @@ a {
   font-size: 30px;
 }
 
-#slider #home .text h1 {
+#home #slider .text h1 {
   font-size: 50px;
 }
 
 /* Products */
 #products .product {
   position: relative;
+}
+
+#products .product .product-card:hover {
+  cursor: pointer;
 }
 
 #products .product .view-btn {
@@ -149,7 +170,7 @@ a {
   opacity: 1;
 }
 
-/*============= Job View =================*/
+/*============= Product View =================*/
 /* Slider */
 #job-view #slider {
   position: relative;
@@ -166,7 +187,7 @@ a {
 
 #job-view #slider .parent-slider .bg,
 #job-view #slider .small-slider .bg {
-  height: 50vh;
+  height: 70vh;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover !important;
@@ -270,9 +291,6 @@ a {
 }
 
 @media screen and (max-width: 1100px) and (min-width: 991px) {
-  .last-link {
-    margin-right: 7%;
-  }
   /* view job slider */
   #job-view #slider .parent-slider .bg {
     height: 30vh !important;
@@ -283,34 +301,31 @@ a {
 }
 
 @media screen and (max-width: 991px) {
-  #slider #home .small-slider {
+  #home #slider .small-slider {
     width: 50%;
     left: 25%;
   }
 }
 
 @media screen and (max-width: 767px) {
-  .last-link {
-    margin-right: 5%;
-  }
   /* home slider */
-  #slider #home .parent-slider .bg,
-  #slider #home .small-slider .bg {
+  #home #slider .parent-slider .bg,
+  #home #slider .small-slider .bg {
     background-position: center;
     background-position-x: 57%;
   }
-  #slider #home .small-slider {
+  #home #slider .small-slider {
     width: 80%;
     left: 10%;
   }
-  #slider #home .small-slider .bg {
+  #home #slider .small-slider .bg {
     height: 10vh;
   }
-  #slider #home .text {
+  #home #slider .text {
     width: 90%;
     font-size: 25px;
   }
-  #slider #home .text h1 {
+  #home #slider .text h1 {
     font-size: 40px;
   }
   /* view job slider */

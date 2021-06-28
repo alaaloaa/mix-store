@@ -2,17 +2,17 @@
   <v-container class="mb-6 categries">
     <v-row>
       <v-col
-        v-for="(image, index) in images"
+        v-for="(cat, index) in categries"
         :key="index"
         class="col-12 col-sm-4 pa-4"
       >
         <v-hover>
           <template #default="{ hover }">
             <div :class="['main', hover ? 'hover' : '']">
-              <v-img contain :src="image" :aspect-ratio="16 / 9"></v-img>
+              <v-img contain :src="cat.image" :aspect-ratio="16 / 9"></v-img>
               <div class="top">
-                <h2>Men</h2>
-                <p class="">Perfect Goods</p>
+                <h2>{{ cat.type }}</h2>
+                <p class="">{{ cat.qoute }}</p>
               </div>
               <v-fade-transition>
                 <v-overlay v-if="hover" absolute color="mainColor">
@@ -31,23 +31,31 @@
 export default {
   data() {
     return {
-      images: [
-        'https://preview.colorlib.com/theme/cozastore/images/banner-04.jpg',
-        'https://preview.colorlib.com/theme/cozastore/images/banner-05.jpg',
-        'https://preview.colorlib.com/theme/cozastore/images/banner-07.jpg',
-        'https://preview.colorlib.com/theme/cozastore/images/banner-08.jpg',
-        'https://preview.colorlib.com/theme/cozastore/images/banner-04.jpg',
-        'https://preview.colorlib.com/theme/cozastore/images/banner-05.jpg',
-        'https://preview.colorlib.com/theme/cozastore/images/banner-07.jpg',
-        'https://preview.colorlib.com/theme/cozastore/images/banner-08.jpg',
-        'https://preview.colorlib.com/theme/cozastore/images/banner-04.jpg',
-        'https://preview.colorlib.com/theme/cozastore/images/banner-05.jpg',
-        'https://preview.colorlib.com/theme/cozastore/images/banner-07.jpg',
-        'https://preview.colorlib.com/theme/cozastore/images/banner-08.jpg',
-        'https://preview.colorlib.com/theme/cozastore/images/banner-04.jpg',
-        'https://preview.colorlib.com/theme/cozastore/images/banner-05.jpg',
-        'https://preview.colorlib.com/theme/cozastore/images/banner-07.jpg',
-        'https://preview.colorlib.com/theme/cozastore/images/banner-08.jpg',
+      categries: [
+        {
+          type: 'Women',
+          qoute: 'Perfect Goods',
+          image:
+            'https://preview.colorlib.com/theme/cozastore/images/banner-04.jpg',
+        },
+        {
+          type: 'Men',
+          qoute: 'New Goods',
+          image:
+            'https://preview.colorlib.com/theme/cozastore/images/banner-05.jpg',
+        },
+        {
+          type: 'Watches',
+          qoute: 'Spring 2021',
+          image:
+            'https://preview.colorlib.com/theme/cozastore/images/banner-07.jpg',
+        },
+        {
+          type: 'Accessories',
+          qoute: 'New Trend',
+          image:
+            'https://preview.colorlib.com/theme/cozastore/images/banner-08.jpg',
+        },
       ],
     }
   },

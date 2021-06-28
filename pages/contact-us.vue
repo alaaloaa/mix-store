@@ -25,7 +25,7 @@
           <v-row
             v-for="(contact, index) in contactData"
             :key="index"
-            class="main"
+            class="main  text-sm-left  text-center"
           >
             <v-col class="col-1">
               <v-icon class="mr-">{{ contact.icon }}</v-icon>

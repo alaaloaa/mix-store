@@ -26,6 +26,12 @@ export default {
     ],
   },
 
+  // Global transition
+  pageTransition: {
+    name: 'page',
+    mode: 'out-in',
+  },
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '@/assets/css/main.css',
@@ -34,7 +40,7 @@ export default {
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~plugins/vuetify.js'],
+  plugins: ['~plugins/vuetify.js', '~plugins/vue-simple-alert.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -65,6 +71,7 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     vendor: ['vuetify'],
+    transpile: ['vue-simple-alert'],
     loaders: {
       // vue: {
       //   prettify: false,

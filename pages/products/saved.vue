@@ -1,6 +1,7 @@
 <template>
   <v-container fluid id="job-view" class="">
-    <v-row>
+    <Loader :loader="loader" />
+    <v-row v-show="!loader">
       <v-col id="slider" class="col-xl-8 col-md-7 col-12">
         <v-row no-gutters>
           <v-col class="col-2">
@@ -8,13 +9,16 @@
               <VueSlickCarousel
                 ref="c2"
                 :asNavFor="c1"
-                :slidesToShow="5"
+                :slidesToShow="1"
                 :focusOnSelect="true"
                 :arrows="false"
                 :verticalSwiping="true"
               >
-                <div class="mainBg" v-for="image in images" :key="image">
-                  <div class="bg" :style="backgroundImage(image)"></div>
+                <div class="mainBg" v-for="image in 1" :key="image">
+                  <div
+                    class="bg"
+                    :style="backgroundImage(itemDetails.image)"
+                  ></div>
                 </div>
               </VueSlickCarousel></div
           ></v-col>
@@ -27,7 +31,10 @@
               fade
             >
               <div v-for="image in images" :key="image">
-                <div class="bg" :style="backgroundImage(image)"></div>
+                <div
+                  class="bg"
+                  :style="backgroundImage(itemDetails.image)"
+                ></div>
               </div>
             </VueSlickCarousel>
           </v-col>
@@ -38,20 +45,21 @@
         class="right col-xl-4 col-md-5 col-12 text-md-left text-center"
       >
         <div class="text">
-          <h4>Lightweight Jacket</h4>
-          <p>$58.79</p>
+          <h4>{{ itemDetails.name }}</h4>
+          <p>${{ itemDetails.price }}</p>
           <p>
-            Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus
-            ligula. Mauris consequat ornare feugiat. Nulla eget sem vitae eros
-            pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare
-            feugiat. Nulla eget sem vitae eros pharetra viverra. Nam
+            Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula.
+            Mauris consequat ornare feugiat. Nulla eget sem vitae eros pharetra
+            viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat.
+            Nulla eget sem vitae eros pharetra viverra. Nam
           </p>
         </div>
         <v-form class="">
           <v-row>
             <v-col class="col-sm-6 col-12">
               <v-select
-                v-model="item.quantity"
+                :items="sizes"
+                :menu-props="{ offsetY: true }"
                 placeholder="siza"
                 outlined
                 dense
@@ -59,7 +67,8 @@
             </v-col>
             <v-col class="col-sm-6 col-12">
               <v-select
-                v-model="item.quantity"
+                :items="colors"
+                :menu-props="{ offsetY: true }"
                 placeholder="Color"
                 outlined
                 dense
@@ -70,17 +79,19 @@
                 <v-btn-toggle class="mb-6">
                   <v-btn
                     class="py-5 px-0"
-                    :disabled="item.quantity === 0 ? true : false"
-                    @click="item.quantity--"
+                    :disabled="itemDetails.quantity === 1 ? true : false"
+                    @click="itemDetails.quantity--"
                     small
                     text
                   >
                     -
                   </v-btn>
-                  <v-btn class="py-5 px-0" small> 5 </v-btn>
+                  <v-btn class="py-5 px-0" small>
+                    {{ itemDetails.quantity }}
+                  </v-btn>
                   <v-btn
                     class="py-5 px-0"
-                    @click="item.quantity++"
+                    @click="itemDetails.quantity++"
                     small
                     text
                   >
@@ -88,7 +99,9 @@
                   </v-btn>
                 </v-btn-toggle>
               </div>
-              <v-btn rounded outlined color="mainColor">ADD TO CART</v-btn>
+              <v-btn @click="addToCart" rounded outlined color="mainColor"
+                >ADD TO CART</v-btn
+              >
             </v-col>
           </v-row>
         </v-form>
@@ -103,6 +116,12 @@ import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 
 export default {
+  props: {
+    item: {
+      type: Object,
+      required: true,
+    },
+  },
   components: {
     VueSlickCarousel,
   },
@@ -110,17 +129,7 @@ export default {
     return {
       c1: undefined,
       c2: undefined,
-      settings: {
-        centerMode: true,
-        centerPadding: '30px',
-        dots: true,
-        infinite: true,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        vertical: true,
-        verticalSwiping: true,
-        swipeToSlide: true,
-      },
+      loader: true,
       images: [
         "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/192790/02/sv01/fnd/EEA/fmt/png/Flyer-Runner-Engineered-Knit-Men's-Running-Shoes",
         'https://www.thenextsole.com/storage/images/192790-02.png',
@@ -128,26 +137,55 @@ export default {
         // 'https://preview.colorlib.com/theme/cozastore/images/slide-01.jpg.webp',
         // 'https://preview.colorlib.com/theme/cozastore/images/slide-02.jpg.webp',
       ],
-      item: {
-        productName: 'T-shirt',
-        productImg:
-          'https://preview.colorlib.com/theme/cozastore/images/xbg-01.jpg.pagespeed.ic.2e1HWxQapm.webp',
-        price: 150,
-        quantity: 88,
-        total: 900,
-      },      
+      // item: {
+      //   productName: 'T-shirt',
+      //   productImg:
+      //     'https://preview.colorlib.com/theme/cozastore/images/xbg-01.jpg.pagespeed.ic.2e1HWxQapm.webp',
+      //   price: 150,
+      //   quantity: 1,
+      //   total: 900,
+      // // },
+      colors: ['Red', 'Black', 'Blue', 'Yellow'],
+      sizes: ['x-Large', 'Large', 'Medium', 'Small'],
+      itemDetails: { ...this.item, quantity: 1 },
     }
+  },
+  computed: {
+    // itemDetails() {
+    //   return { ...this.item, quantity: 1, total: 900 }
+    // },
   },
   methods: {
     backgroundImage(image) {
       return {
         backgroundImage: `url("${image}")`,
       }
-    }
+    },
+    addToCart() {
+      var items = []
+      // Parse the serialized data back into an aray of objects
+      items = JSON.parse(localStorage.getItem('items')) || []
+      // Push the new data (whether it be an object or anything else) onto the array
+      items.push({
+        ...this.itemDetails,
+        total: this.itemDetails.price * this.itemDetails.quantity,
+      })
+      // Re-serialize the array back into a string and store it in localStorage
+      localStorage.setItem('items', JSON.stringify(items))
+
+      this.$store.commit('addToCart')
+      this.$emit('addToCart')
+    },
   },
   mounted() {
+    this.loader = false
     this.c1 = this.$refs.c1
     this.c2 = this.$refs.c2
+  },
+  watch: {
+    item(val) {
+      this.itemDetails = { ...val, quantity: 1 }
+    },
   },
 }
 </script>
